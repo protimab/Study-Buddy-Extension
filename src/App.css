@@ -1,3 +1,9 @@
+
+:root {
+  --red: #f54e4e;
+  --green: #4aec8c;
+}
+
 body {
   background-color: #30384b;
   color: #eee;
@@ -32,4 +38,8 @@ button.text svg {
   width: 36px;
   float:left;
   margin-right: 5px;
+}
+
+label{
+  display: block;
 }
