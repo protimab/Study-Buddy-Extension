@@ -1,19 +1,31 @@
 import ReactSlider from 'react-slider';
 import './slider.css'
+import SettingsContext from './SettingsContext';
+import {useContext} from "react";
 function Settings() {
+    const settingsInfo = useContext(SettingsContext);
     return(
-        <div style={{textAlign:'left'}}>settings
-            <label>work minutes: </label>
+        <div style={{textAlign:'middle'}}>
+            <label>work: {settingsInfo.workMinutes}:00 </label>
             <ReactSlider 
                 className={'slider'}
                 thumbClassName={'thumb'}
                 trackClassName={'track'}
-                value={45}
+                value={settingsInfo.workMinutes}
                 min={1}
                 max={120}
 
             />
-            <label>break minutes:</label>
+             <label>break:{settingsInfo.breakMinutes}:00 </label>
+            <ReactSlider 
+                className={'slider green'}
+                thumbClassName={'thumb'}
+                trackClassName={'track'}
+                value={settingsInfo.breakMinutes}
+                min={1}
+                max={120}
+
+            />
         </div>
     );
 }

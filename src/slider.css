@@ -5,7 +5,21 @@
 }
 
 .thumb{
-    background-image: var(--red);
+    background-color: var(--red);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.slider.green {
+    height: 40px;
+    border: 2px solid var(--green);
+    border-radius: 20px;
+}
+
+.slider.green .thumb{
+    background-color: var(--green);
     cursor: pointer;
     width: 40px;
     height: 40px;
