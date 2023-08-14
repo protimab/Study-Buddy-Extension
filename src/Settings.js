@@ -30,7 +30,7 @@ function Settings() {
 
             />
             <div style={{textAlign: 'center', marginTop: '20px'}}>
-                <BackButton />
+                <BackButton onClick= {() => settingsInfo.setShowSettings(false)} />
             </div>
         </div>
     );

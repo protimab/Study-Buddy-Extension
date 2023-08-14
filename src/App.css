@@ -5,8 +5,10 @@
 }
 
 body {
-  background-color: #30384b;
+  background-color:#2A683E;
   color: #eee;
+  font-family:'Courier New', Courier, monospace;
+  font-size: medium;
 }
 
 main {
@@ -14,6 +16,8 @@ main {
   max-width: 340px;
   margin: 0 auto;
   text-align: center;
+  font-family:'Courier New', Courier, monospace;
+  font-size: medium;
 }
 
 button {
@@ -23,6 +27,8 @@ button {
   display: inline-block;
   width: 30px;
   cursor: pointer;
+  font-family:'Courier New', Courier, monospace;
+  font-size: medium;
 }
 
 button.text {
@@ -32,12 +38,16 @@ button.text {
   padding: 10px 20px;
   font-size: 1.4rem;
   line-height: 36px;
+  font-family:'Courier New', Courier, monospace;
+  font-size: medium;
 }
 
 button.text svg {
   width: 36px;
   float:left;
   margin-right: 5px;
+  font-family:'Courier New', Courier, monospace;
+  font-size: medium;
 }
 
 label{
