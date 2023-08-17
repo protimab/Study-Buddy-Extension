@@ -82,6 +82,10 @@ function Timer() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', height: '100vh' }}>
+      <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+        <SettingsButton onClick={() => settingsInfo.setShowSettings(true)} />
+      </div>
+
       <div style={{ marginTop: '20px', width: 300, height: 300, alignItems: 'flex-start' }}>
         <img src={
               plantStage === 0 ? plantStage1 :
@@ -91,7 +95,7 @@ function Timer() {
             } alt="Plant Stage" style={{ width: '100%', height: 'auto' }} />
         </div>
         
-        <div style={{ marginTop: '20px', width: 250, height: 250 }}>
+        <div style={{ marginTop: '20px', width: 150, height: 150 }}>
           <CircularProgressbar
             value={percentage}
             text={minutes + ':' + seconds}
@@ -111,10 +115,6 @@ function Timer() {
           {isPaused
                ? <PlayButton onClick={() => { setIsPaused(false); isPausedRef.current = false; }} style={{ width: '40px', height: '40px' }} />
                : <PauseButton onClick={() => { setIsPaused(true); isPausedRef.current = true; }} style={{ width: '40px', height: '40px' }} />}
-        </div>
-
-        <div style={{marginTop:'10px'}}>
-          <SettingsButton onClick={() => settingsInfo.setShowSettings(true)} />
         </div>
     </div>
   );

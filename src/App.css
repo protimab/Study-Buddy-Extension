@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color:#2A683E;
+  background-color: #2A683E;
   color: #eee;
   font-family:'Courier New', Courier, monospace;
   font-size: medium;
@@ -21,7 +21,7 @@ main {
 }
 
 button {
-  background-color: transparent;
+  background-color: transparent; 
   color: rgba(255,255,255,0.8);
   border:0;
   display: inline-block;
@@ -59,7 +59,7 @@ label{
 
 .PlayButton,
 .PauseButton {
-  background-color: transparent;
+  background-color: transparent;  
   color: rgba(255, 255, 255, 0.8);
   border: 0;
   display: inline-block;
