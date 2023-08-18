@@ -5,6 +5,7 @@ import PauseButton from "./PauseButton";
 import SettingsButton from "./SettingsButton";
 import {useContext, useState, useEffect, useRef} from "react";
 import SettingsContext from "./SettingsContext";
+import TaskList from './TaskList';
 import plantStage1 from "./small_plant.png";
 import plantStage2 from "./sapling.jpeg";
 import plantStage3 from "./tree.png";
@@ -20,6 +21,9 @@ function Timer() {
   const [secondsLeft, setSecondsLeft] = useState(0);
   const [plantStage, setPlantStage] = useState(0);
   const [elapsedTime, setElapsedTime] = useState(0);
+  const [tasks, setTasks] = useState([]);
+  const [newTaskText, setNewTaskText] = useState('');
+  const [showTaskList, setShowTaskList] = useState(false); 
   
   const secondsLeftRef = useRef(secondsLeft);
   const isPausedRef = useRef(isPaused);
@@ -80,13 +84,37 @@ function Timer() {
   if(seconds < 10) 
     seconds = '0'+seconds;
 
+    const handleTaskToggle = (taskId) => {
+      const updatedTasks = tasks.map(task =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      );
+      setTasks(updatedTasks);
+    };
+  
+    const handleTaskInputChange = (event) => {
+      setNewTaskText(event.target.value);
+    };
+  
+    const handleTaskInputKeyDown = (event) => {
+      if (event.key === 'Enter' && newTaskText.trim() !== '') {
+        const newTask = {
+          id: tasks.length + 1,
+          text: newTaskText,
+          completed: false,
+        };
+        setTasks([...tasks, newTask]);
+        setNewTaskText('');
+      }
+    };
+
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', height: '100vh' }}>
       <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
         <SettingsButton onClick={() => settingsInfo.setShowSettings(true)} />
       </div>
 
-      <div style={{ marginTop: '20px', width: 300, height: 300, alignItems: 'flex-start' }}>
+      <div style={{ marginTop: '10px', width: 300, height: 300, alignItems: 'flex-start' }}>
         <img src={
               plantStage === 0 ? plantStage1 :
               plantStage === 1 ? plantStage2 :
@@ -94,8 +122,44 @@ function Timer() {
               plantStage4
             } alt="Plant Stage" style={{ width: '100%', height: 'auto' }} />
         </div>
+
         
-        <div style={{ marginTop: '20px', width: 150, height: 150 }}>
+    <div style={{ marginTop: '20px', width: '100%' }}>
+      <button
+        onClick={() => setShowTaskList(!showTaskList)}
+        style={{
+          backgroundColor: '#007bff',
+          color: 'white',
+          border: 'none',
+          padding: '8px 16px',
+          borderRadius: '4px',
+          cursor: 'pointer',
+        }}
+      >
+        {showTaskList ? 'Hide Task List' : 'Show Task List'}
+      </button>
+    </div>
+
+    {showTaskList && (
+      <>
+        <div style={{ marginTop: '20px', width: '100%' }}>
+          <input
+            type="text"
+            placeholder="Add a new task"
+            value={newTaskText}
+            onChange={handleTaskInputChange}
+            onKeyDown={handleTaskInputKeyDown}
+            style={{ width: '100%', padding: '8px' }}
+          />
+        </div>
+
+        <div style={{ marginTop: '20px', width: '100%' }}>
+          <TaskList tasks={tasks} onToggle={handleTaskToggle} />
+        </div>
+      </>
+    )}
+
+        <div style={{ marginTop: '10px', width: 150, height: 150 }}>
           <CircularProgressbar
             value={percentage}
             text={minutes + ':' + seconds}
