@@ -110,7 +110,7 @@ function Timer() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'center', height: '100vh' }}>
-      <div style={{ position: 'absolute', top: '10px', left: '10px' }}>
+      <div style={{ position: 'absolute', top: '5px', left: '5px' }}>
         <SettingsButton onClick={() => settingsInfo.setShowSettings(true)} />
       </div>
 
@@ -123,23 +123,45 @@ function Timer() {
             } alt="Plant Stage" style={{ width: '100%', height: 'auto' }} />
         </div>
 
-        <div style={{ marginTop: '20px', width: '100%' }}>
+        <div style={{ position: 'absolute', top: '2px', right: '5px' }}>
       <button
         onClick={() => setShowTaskList(!showTaskList)}
         style={{
-          backgroundColor: '#163520',
+          backgroundColor: '#52CC7A',
           color: 'white',
           border: 'none',
-          padding: '20px 50px',
+          padding: '10px 60px',
           borderRadius: '5px',
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
-          textAlign: 'center',
+          justifyContent: 'center',
+          whiteSpace: 'nowrap',
         }}
       >
         {showTaskList ? 'Hide Task List' : 'Show Task List'}
       </button>
+      {showTaskList && (
+        <div style={{ marginTop: '10px' }}>
+          <button
+            onClick={() => setTasks([])} 
+            style={{
+              backgroundColor: '#52CC7A',
+              color: 'white',
+              border: 'none',
+              padding: '10px 60px',
+              borderRadius: '5px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Clear Task List
+          </button>
+        </div>
+      )}
     </div>
 
     {showTaskList && (
@@ -155,13 +177,12 @@ function Timer() {
           />
         </div>
 
-        <div style={{ marginTop: '20px', width: '100%' }}>
+
+        <div style={{ marginTop: '10px', width: '100%' }}>
           <TaskList tasks={tasks} onToggle={handleTaskToggle} />
         </div>
       </>
     )} 
-    
-
         <div style={{ marginTop: '10px', width: 150, height: 150 }}>
           <CircularProgressbar
             value={percentage}
