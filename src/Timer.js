@@ -123,17 +123,19 @@ function Timer() {
             } alt="Plant Stage" style={{ width: '100%', height: 'auto' }} />
         </div>
 
-        
-    <div style={{ marginTop: '20px', width: '100%' }}>
+        <div style={{ marginTop: '20px', width: '100%' }}>
       <button
         onClick={() => setShowTaskList(!showTaskList)}
         style={{
-          backgroundColor: '#007bff',
+          backgroundColor: '#163520',
           color: 'white',
           border: 'none',
-          padding: '8px 16px',
-          borderRadius: '4px',
+          padding: '20px 50px',
+          borderRadius: '5px',
           cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          textAlign: 'center',
         }}
       >
         {showTaskList ? 'Hide Task List' : 'Show Task List'}
@@ -157,7 +159,8 @@ function Timer() {
           <TaskList tasks={tasks} onToggle={handleTaskToggle} />
         </div>
       </>
-    )}
+    )} 
+    
 
         <div style={{ marginTop: '10px', width: 150, height: 150 }}>
           <CircularProgressbar
