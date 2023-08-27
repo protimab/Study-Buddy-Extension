@@ -61,7 +61,7 @@ function Timer() {
       tick();
 
       setElapsedTime(prevTime => prevTime + 1);
-    }, 100);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [settingsInfo]);
@@ -127,7 +127,7 @@ function Timer() {
       <button
         onClick={() => setShowTaskList(!showTaskList)}
         style={{
-          backgroundColor: '#52CC7A',
+          backgroundColor: '#E57373',
           color: 'white',
           border: 'none',
           padding: '10px 60px',
@@ -146,7 +146,7 @@ function Timer() {
           <button
             onClick={() => setTasks([])} 
             style={{
-              backgroundColor: '#52CC7A',
+              backgroundColor: '#E57373',
               color: 'white',
               border: 'none',
               padding: '10px 60px',

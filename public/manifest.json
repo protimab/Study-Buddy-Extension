@@ -9,7 +9,7 @@
   "manifest_version": 3,
   "name": "Study Buddy",
   "version": "1.0",
-  "description": "study buddy :>",
+  "description": "A study tool to help you focus :)",
   "action": {
     "default_popup": "index.html"
   },
