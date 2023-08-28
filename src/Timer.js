@@ -114,7 +114,7 @@ function Timer() {
         <SettingsButton onClick={() => settingsInfo.setShowSettings(true)} />
       </div>
 
-      <div style={{ marginTop: '10px', width: 100, height: 100, alignItems: 'flex-start' }}>
+      <div style={{ marginTop: '40px', width: 200, height: 200, alignItems: 'flex-start' }}>
         <img src={
               plantStage === 0 ? plantStage1 :
               plantStage === 1 ? plantStage2 :
@@ -183,7 +183,7 @@ function Timer() {
         </div>
       </>
     )} 
-        <div style={{ marginTop: '50px', width: 150, height: 150 }}>
+        <div style={{ marginTop: '90px', width: 150, height: 150 }}>
           <CircularProgressbar
             value={percentage}
             text={minutes + ':' + seconds}
