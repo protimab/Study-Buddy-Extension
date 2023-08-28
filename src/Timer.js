@@ -61,13 +61,13 @@ function Timer() {
       tick();
 
       setElapsedTime(prevTime => prevTime + 1);
-    }, 10);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [settingsInfo]);
 
   useEffect(() => {
-    if (modeRef.current === 'work' && elapsedTime >= 120) {
+    if (modeRef.current === 'work' && elapsedTime >= 900) {
       setElapsedTime(0);
       setPlantStage(prevStage => (prevStage + 1) % 4);
     }
