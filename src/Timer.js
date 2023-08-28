@@ -6,10 +6,10 @@ import SettingsButton from "./SettingsButton";
 import {useContext, useState, useEffect, useRef} from "react";
 import SettingsContext from "./SettingsContext";
 import TaskList from './TaskList';
-import plantStage1 from "./small_plant.png";
-import plantStage2 from "./sapling.jpeg";
-import plantStage3 from "./tree.png";
-import plantStage4 from "./sapling.jpeg";
+import plantStage1 from "./plant1.jpg";
+import plantStage2 from "./plant2.jpg";
+import plantStage3 from "./plant3.jpg";
+import plantStage4 from "./plant4.jpg";
 
 const red = '#f54e4e';
 const green = '#4aec8c';
@@ -61,7 +61,7 @@ function Timer() {
       tick();
 
       setElapsedTime(prevTime => prevTime + 1);
-    }, 1000);
+    }, 10);
 
     return () => clearInterval(interval);
   }, [settingsInfo]);
@@ -114,7 +114,7 @@ function Timer() {
         <SettingsButton onClick={() => settingsInfo.setShowSettings(true)} />
       </div>
 
-      <div style={{ marginTop: '10px', width: 300, height: 300, alignItems: 'flex-start' }}>
+      <div style={{ marginTop: '10px', width: 100, height: 100, alignItems: 'flex-start' }}>
         <img src={
               plantStage === 0 ? plantStage1 :
               plantStage === 1 ? plantStage2 :
@@ -183,7 +183,7 @@ function Timer() {
         </div>
       </>
     )} 
-        <div style={{ marginTop: '10px', width: 150, height: 150 }}>
+        <div style={{ marginTop: '50px', width: 150, height: 150 }}>
           <CircularProgressbar
             value={percentage}
             text={minutes + ':' + seconds}
