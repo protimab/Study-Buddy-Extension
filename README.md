@@ -1,2 +1,2 @@
 study buddy extension 
-react project
+- react project
