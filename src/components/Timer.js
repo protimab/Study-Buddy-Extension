@@ -6,10 +6,10 @@ import SettingsButton from "./SettingsButton";
 import {useContext, useState, useEffect, useRef} from "react";
 import SettingsContext from "./SettingsContext";
 import TaskList from './TaskList';
-import plantStage1 from "./plant1.jpg";
-import plantStage2 from "./plant2.jpg";
-import plantStage3 from "./plant3.jpg";
-import plantStage4 from "./plant4.jpg";
+import plantStage1 from "../assets/plant_stage_1-new.png";
+import plantStage2 from "../assets/plant_stage_2-new.png";
+import plantStage3 from "../assets/plant_stage_3-new.png";
+import plantStage4 from "../assets/plant_stage_4-new.png";
 
 const red = '#f54e4e';
 const green = '#4aec8c';
@@ -67,9 +67,13 @@ function Timer() {
   }, [settingsInfo]);
 
   useEffect(() => {
-    if (modeRef.current === 'work' && elapsedTime >= 900) {
+    if (modeRef.current === 'work' && elapsedTime >= ((settingsInfo.workMinutes)/3) * 60) {
       setElapsedTime(0);
       setPlantStage(prevStage => (prevStage + 1) % 4);
+    }
+    if (modeRef.current === 'break') {
+      setElapsedTime(0);
+      setPlantStage(4);
     }
   }, [elapsedTime]);
   
